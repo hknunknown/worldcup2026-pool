@@ -1,0 +1,650 @@
+[
+  {
+    "num": 1,
+    "date": "11-Jun",
+    "home": "Mexico",
+    "home_goals": 2,
+    "away_goals": 0,
+    "away": "South Africa",
+    "stage": "Group A"
+  },
+  {
+    "num": 2,
+    "date": "12-Jun",
+    "home": "South Korea",
+    "home_goals": 2,
+    "away_goals": 1,
+    "away": "Czechia",
+    "stage": "Group A"
+  },
+  {
+    "num": 3,
+    "date": "12-Jun",
+    "home": "Canada",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "Bosnia-Herzegovina",
+    "stage": "Group B"
+  },
+  {
+    "num": 4,
+    "date": "13-Jun",
+    "home": "USA",
+    "home_goals": 4,
+    "away_goals": 1,
+    "away": "Paraguay",
+    "stage": "Group D"
+  },
+  {
+    "num": 5,
+    "date": "14-Jun",
+    "home": "Haiti",
+    "home_goals": 0,
+    "away_goals": 1,
+    "away": "Scotland",
+    "stage": "Group C"
+  },
+  {
+    "num": 6,
+    "date": "14-Jun",
+    "home": "Australia",
+    "home_goals": 2,
+    "away_goals": 0,
+    "away": "Türkiye",
+    "stage": "Group D"
+  },
+  {
+    "num": 7,
+    "date": "13-Jun",
+    "home": "Brazil",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "Morocco",
+    "stage": "Group C"
+  },
+  {
+    "num": 8,
+    "date": "13-Jun",
+    "home": "Qatar",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "Switzerland",
+    "stage": "Group B"
+  },
+  {
+    "num": 9,
+    "date": "14-Jun",
+    "home": "Ivory Coast",
+    "home_goals": 1,
+    "away_goals": 0,
+    "away": "Ecuador",
+    "stage": "Group E"
+  },
+  {
+    "num": 10,
+    "date": "14-Jun",
+    "home": "Germany",
+    "home_goals": 7,
+    "away_goals": 1,
+    "away": "Curaçao",
+    "stage": "Group E"
+  },
+  {
+    "num": 11,
+    "date": "14-Jun",
+    "home": "Netherlands",
+    "home_goals": 2,
+    "away_goals": 2,
+    "away": "Japan",
+    "stage": "Group F"
+  },
+  {
+    "num": 12,
+    "date": "15-Jun",
+    "home": "Sweden",
+    "home_goals": 5,
+    "away_goals": 1,
+    "away": "Tunisia",
+    "stage": "Group F"
+  },
+  {
+    "num": 13,
+    "date": "15-Jun",
+    "home": "Saudi Arabia",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "Uruguay",
+    "stage": "Group H"
+  },
+  {
+    "num": 14,
+    "date": "15-Jun",
+    "home": "Spain",
+    "home_goals": 0,
+    "away_goals": 0,
+    "away": "Cape Verde",
+    "stage": "Group H"
+  },
+  {
+    "num": 15,
+    "date": "16-Jun",
+    "home": "Iran",
+    "home_goals": 2,
+    "away_goals": 2,
+    "away": "New Zealand",
+    "stage": "Group G"
+  },
+  {
+    "num": 16,
+    "date": "15-Jun",
+    "home": "Belgium",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "Egypt",
+    "stage": "Group G"
+  },
+  {
+    "num": 17,
+    "date": "16-Jun",
+    "home": "France",
+    "home_goals": 3,
+    "away_goals": 1,
+    "away": "Senegal",
+    "stage": "Group I"
+  },
+  {
+    "num": 18,
+    "date": "16-Jun",
+    "home": "Iraq",
+    "home_goals": 1,
+    "away_goals": 4,
+    "away": "Norway",
+    "stage": "Group I"
+  },
+  {
+    "num": 19,
+    "date": "17-Jun",
+    "home": "Argentina",
+    "home_goals": 3,
+    "away_goals": 0,
+    "away": "Algeria",
+    "stage": "Group J"
+  },
+  {
+    "num": 20,
+    "date": "17-Jun",
+    "home": "Austria",
+    "home_goals": 3,
+    "away_goals": 1,
+    "away": "Jordan",
+    "stage": "Group J"
+  },
+  {
+    "num": 21,
+    "date": "17-Jun",
+    "home": "Ghana",
+    "home_goals": 1,
+    "away_goals": 0,
+    "away": "Panama",
+    "stage": "Group L"
+  },
+  {
+    "num": 22,
+    "date": "17-Jun",
+    "home": "England",
+    "home_goals": 4,
+    "away_goals": 2,
+    "away": "Croatia",
+    "stage": "Group L"
+  },
+  {
+    "num": 23,
+    "date": "17-Jun",
+    "home": "Portugal",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "Congo DR",
+    "stage": "Group K"
+  },
+  {
+    "num": 24,
+    "date": "18-Jun",
+    "home": "Uzbekistan",
+    "home_goals": 1,
+    "away_goals": 3,
+    "away": "Colombia",
+    "stage": "Group K"
+  },
+  {
+    "num": 25,
+    "date": "18-Jun",
+    "home": "Czechia",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "South Africa",
+    "stage": "Group A"
+  },
+  {
+    "num": 26,
+    "date": "18-Jun",
+    "home": "Switzerland",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Bosnia-Herzegovina",
+    "stage": "Group B"
+  },
+  {
+    "num": 27,
+    "date": "18-Jun",
+    "home": "Canada",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Qatar",
+    "stage": "Group B"
+  },
+  {
+    "num": 28,
+    "date": "19-Jun",
+    "home": "Mexico",
+    "home_goals": 1,
+    "away_goals": 0,
+    "away": "South Korea",
+    "stage": "Group A"
+  },
+  {
+    "num": 29,
+    "date": "20-Jun",
+    "home": "Brazil",
+    "home_goals": 3,
+    "away_goals": 0,
+    "away": "Haiti",
+    "stage": "Group C"
+  },
+  {
+    "num": 30,
+    "date": "19-Jun",
+    "home": "Scotland",
+    "home_goals": 0,
+    "away_goals": 1,
+    "away": "Morocco",
+    "stage": "Group C"
+  },
+  {
+    "num": 31,
+    "date": "20-Jun",
+    "home": "USA",
+    "home_goals": 2,
+    "away_goals": 0,
+    "away": "Australia",
+    "stage": "Group D"
+  },
+  {
+    "num": 32,
+    "date": "19-Jun",
+    "home": "Türkiye",
+    "home_goals": 0,
+    "away_goals": 1,
+    "away": "Paraguay",
+    "stage": "Group D"
+  },
+  {
+    "num": 33,
+    "date": "20-Jun",
+    "home": "Germany",
+    "home_goals": 2,
+    "away_goals": 1,
+    "away": "Ivory Coast",
+    "stage": "Group E"
+  },
+  {
+    "num": 34,
+    "date": "21-Jun",
+    "home": "Ecuador",
+    "home_goals": 0,
+    "away_goals": 0,
+    "away": "Curaçao",
+    "stage": "Group E"
+  },
+  {
+    "num": 35,
+    "date": "20-Jun",
+    "home": "Netherlands",
+    "home_goals": 5,
+    "away_goals": 1,
+    "away": "Sweden",
+    "stage": "Group F"
+  },
+  {
+    "num": 36,
+    "date": "21-Jun",
+    "home": "Tunisia",
+    "home_goals": 0,
+    "away_goals": 4,
+    "away": "Japan",
+    "stage": "Group F"
+  },
+  {
+    "num": 37,
+    "date": "21-Jun",
+    "home": "Uruguay",
+    "home_goals": 2,
+    "away_goals": 2,
+    "away": "Cape Verde",
+    "stage": "Group H"
+  },
+  {
+    "num": 38,
+    "date": "21-Jun",
+    "home": "Spain",
+    "home_goals": 4,
+    "away_goals": 0,
+    "away": "Saudi Arabia",
+    "stage": "Group H"
+  },
+  {
+    "num": 39,
+    "date": "21-Jun",
+    "home": "Belgium",
+    "home_goals": 0,
+    "away_goals": 0,
+    "away": "Iran",
+    "stage": "Group G"
+  },
+  {
+    "num": 40,
+    "date": "22-Jun",
+    "home": "New Zealand",
+    "home_goals": 1,
+    "away_goals": 3,
+    "away": "Egypt",
+    "stage": "Group G"
+  },
+  {
+    "num": 41,
+    "date": "23-Jun",
+    "home": "Norway",
+    "home_goals": 3,
+    "away_goals": 2,
+    "away": "Senegal",
+    "stage": "Group I"
+  },
+  {
+    "num": 42,
+    "date": "22-Jun",
+    "home": "France",
+    "home_goals": 3,
+    "away_goals": 0,
+    "away": "Iraq",
+    "stage": "Group I"
+  },
+  {
+    "num": 43,
+    "date": "22-Jun",
+    "home": "Argentina",
+    "home_goals": 2,
+    "away_goals": 0,
+    "away": "Austria",
+    "stage": "Group J"
+  },
+  {
+    "num": 44,
+    "date": "23-Jun",
+    "home": "Jordan",
+    "home_goals": 1,
+    "away_goals": 2,
+    "away": "Algeria",
+    "stage": "Group J"
+  },
+  {
+    "num": 45,
+    "date": "23-Jun",
+    "home": "England",
+    "home_goals": 0,
+    "away_goals": 0,
+    "away": "Ghana",
+    "stage": "Group L"
+  },
+  {
+    "num": 46,
+    "date": "23-Jun",
+    "home": "Panama",
+    "home_goals": 0,
+    "away_goals": 1,
+    "away": "Croatia",
+    "stage": "Group L"
+  },
+  {
+    "num": 47,
+    "date": "23-Jun",
+    "home": "Portugal",
+    "home_goals": 5,
+    "away_goals": 0,
+    "away": "Uzbekistan",
+    "stage": "Group K"
+  },
+  {
+    "num": 48,
+    "date": "24-Jun",
+    "home": "Colombia",
+    "home_goals": 1,
+    "away_goals": 0,
+    "away": "Congo DR",
+    "stage": "Group K"
+  },
+  {
+    "num": 49,
+    "date": "24-Jun",
+    "home": "Scotland",
+    "home_goals": 0,
+    "away_goals": 3,
+    "away": "Brazil",
+    "stage": "Group C"
+  },
+  {
+    "num": 50,
+    "date": "24-Jun",
+    "home": "Morocco",
+    "home_goals": 4,
+    "away_goals": 2,
+    "away": "Haiti",
+    "stage": "Group C"
+  },
+  {
+    "num": 51,
+    "date": "24-Jun",
+    "home": "Switzerland",
+    "home_goals": 2,
+    "away_goals": 1,
+    "away": "Canada",
+    "stage": "Group B"
+  },
+  {
+    "num": 52,
+    "date": "24-Jun",
+    "home": "Bosnia-Herzegovina",
+    "home_goals": 3,
+    "away_goals": 1,
+    "away": "Qatar",
+    "stage": "Group B"
+  },
+  {
+    "num": 53,
+    "date": "25-Jun",
+    "home": "Czechia",
+    "home_goals": 0,
+    "away_goals": 3,
+    "away": "Mexico",
+    "stage": "Group A"
+  },
+  {
+    "num": 54,
+    "date": "25-Jun",
+    "home": "South Africa",
+    "home_goals": 1,
+    "away_goals": 0,
+    "away": "South Korea",
+    "stage": "Group A"
+  },
+  {
+    "num": 55,
+    "date": "25-Jun",
+    "home": "Curaçao",
+    "home_goals": 0,
+    "away_goals": 2,
+    "away": "Ivory Coast",
+    "stage": "Group E"
+  },
+  {
+    "num": 56,
+    "date": "25-Jun",
+    "home": "Ecuador",
+    "home_goals": 2,
+    "away_goals": 1,
+    "away": "Germany",
+    "stage": "Group E"
+  },
+  {
+    "num": 57,
+    "date": "25-Jun",
+    "home": "Japan",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "Sweden",
+    "stage": "Group F"
+  },
+  {
+    "num": 58,
+    "date": "25-Jun",
+    "home": "Tunisia",
+    "home_goals": 1,
+    "away_goals": 3,
+    "away": "Netherlands",
+    "stage": "Group F"
+  },
+  {
+    "num": 59,
+    "date": "26-Jun",
+    "home": "Türkiye",
+    "home_goals": 3,
+    "away_goals": 2,
+    "away": "USA",
+    "stage": "Group D"
+  },
+  {
+    "num": 60,
+    "date": "26-Jun",
+    "home": "Paraguay",
+    "home_goals": 0,
+    "away_goals": 0,
+    "away": "Australia",
+    "stage": "Group D"
+  },
+  {
+    "num": 61,
+    "date": "26-Jun",
+    "home": "Norway",
+    "home_goals": 1,
+    "away_goals": 4,
+    "away": "France",
+    "stage": "Group I"
+  },
+  {
+    "num": 62,
+    "date": "26-Jun",
+    "home": "Senegal",
+    "home_goals": 5,
+    "away_goals": 0,
+    "away": "Iraq",
+    "stage": "Group I"
+  },
+  {
+    "num": 63,
+    "date": "27-Jun",
+    "home": "Egypt",
+    "home_goals": 1,
+    "away_goals": 1,
+    "away": "Iran",
+    "stage": "Group G"
+  },
+  {
+    "num": 64,
+    "date": "27-Jun",
+    "home": "New Zealand",
+    "home_goals": 1,
+    "away_goals": 5,
+    "away": "Belgium",
+    "stage": "Group G"
+  },
+  {
+    "num": 65,
+    "date": "27-Jun",
+    "home": "Cape Verde",
+    "home_goals": 0,
+    "away_goals": 0,
+    "away": "Saudi Arabia",
+    "stage": "Group H"
+  },
+  {
+    "num": 66,
+    "date": "27-Jun",
+    "home": "Uruguay",
+    "home_goals": 0,
+    "away_goals": 1,
+    "away": "Spain",
+    "stage": "Group H"
+  },
+  {
+    "num": 67,
+    "date": "27-Jun",
+    "home": "Panama",
+    "home_goals": 0,
+    "away_goals": 2,
+    "away": "England",
+    "stage": "Group L"
+  },
+  {
+    "num": 68,
+    "date": "27-Jun",
+    "home": "Croatia",
+    "home_goals": 2,
+    "away_goals": 1,
+    "away": "Ghana",
+    "stage": "Group L"
+  },
+  {
+    "num": 69,
+    "date": "28-Jun",
+    "home": "Algeria",
+    "home_goals": 3,
+    "away_goals": 3,
+    "away": "Austria",
+    "stage": "Group J"
+  },
+  {
+    "num": 70,
+    "date": "28-Jun",
+    "home": "Jordan",
+    "home_goals": 1,
+    "away_goals": 3,
+    "away": "Argentina",
+    "stage": "Group J"
+  },
+  {
+    "num": 71,
+    "date": "27-Jun",
+    "home": "Colombia",
+    "home_goals": 0,
+    "away_goals": 0,
+    "away": "Portugal",
+    "stage": "Group K"
+  },
+  {
+    "num": 72,
+    "date": "27-Jun",
+    "home": "Congo DR",
+    "home_goals": 3,
+    "away_goals": 1,
+    "away": "Uzbekistan",
+    "stage": "Group K"
+  }
+]

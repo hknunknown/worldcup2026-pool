@@ -1,0 +1,4 @@
+# This file tells Render how to start the website.
+# You don't need to edit this - it's read automatically.
+
+startCommand: gunicorn app:app

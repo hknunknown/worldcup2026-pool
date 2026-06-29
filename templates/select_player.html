@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Who are you? — World Cup 2026 Pool{% endblock %}
+
+{% block extra_style %}
+<style>
+  .select-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .select-header h2 {
+    font-size: 1.5rem;
+    margin: 0 0 6px;
+    color: var(--pitch);
+  }
+  .select-header .sub {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  .player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .player-card {
+    display: block;
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    padding: 20px 14px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.15s ease;
+  }
+
+  .player-card:hover {
+    border-color: var(--gold);
+    background: #FFFBF0;
+    transform: translateY(-2px);
+  }
+
+  .player-card .initial {
+    display: block;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    background: var(--pitch);
+    color: var(--chalk);
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    font-size: 1.1rem;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="select-header">
+  <h2>Who are you?</h2>
+  <div class="sub">Tap your name to enter or update your predictions</div>
+</div>
+
+<div class="player-grid">
+  {% for name in players %}
+  <a class="player-card" href="{{ url_for('predict', player_name=name) }}">
+    <span class="initial">{{ name[0] }}</span>
+    {{ name }}
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,162 @@
+[
+  {
+    "num": 1,
+    "date": "Sun, 28 Jun",
+    "time": "21:00",
+    "home": "South Africa",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Canada",
+    "pen_winner": null
+  },
+  {
+    "num": 2,
+    "date": "Mon, 29 Jun",
+    "time": "19:00",
+    "home": "Brazil",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Japan",
+    "pen_winner": null
+  },
+  {
+    "num": 3,
+    "date": "Mon, 29 Jun",
+    "time": "22:30",
+    "home": "Germany",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Paraguay",
+    "pen_winner": null
+  },
+  {
+    "num": 4,
+    "date": "Tue, 30 Jun",
+    "time": "03:00",
+    "home": "Netherlands",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Morocco",
+    "pen_winner": null
+  },
+  {
+    "num": 5,
+    "date": "Tue, 30 Jun",
+    "time": "19:00",
+    "home": "Côte d'Ivoire",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Norway",
+    "pen_winner": null
+  },
+  {
+    "num": 6,
+    "date": "Tue, 30 Jun",
+    "time": "23:00",
+    "home": "France",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Sweden",
+    "pen_winner": null
+  },
+  {
+    "num": 7,
+    "date": "Wed, 1 Jul",
+    "time": "03:00",
+    "home": "Mexico",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Ecuador",
+    "pen_winner": null
+  },
+  {
+    "num": 8,
+    "date": "Wed, 1 Jul",
+    "time": "18:00",
+    "home": "England",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "DR Congo",
+    "pen_winner": null
+  },
+  {
+    "num": 9,
+    "date": "Wed, 1 Jul",
+    "time": "22:00",
+    "home": "Belgium",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Senegal",
+    "pen_winner": null
+  },
+  {
+    "num": 10,
+    "date": "Thu, 2 Jul",
+    "time": "02:00",
+    "home": "USA",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Bosnia and Herzegovina",
+    "pen_winner": null
+  },
+  {
+    "num": 11,
+    "date": "Thu, 2 Jul",
+    "time": "21:00",
+    "home": "Spain",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Austria",
+    "pen_winner": null
+  },
+  {
+    "num": 12,
+    "date": "Fri, 3 Jul",
+    "time": "01:00",
+    "home": "Portugal",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Croatia",
+    "pen_winner": null
+  },
+  {
+    "num": 13,
+    "date": "Fri, 3 Jul",
+    "time": "05:00",
+    "home": "Switzerland",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Algeria",
+    "pen_winner": null
+  },
+  {
+    "num": 14,
+    "date": "Fri, 3 Jul",
+    "time": "20:00",
+    "home": "Australia",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Egypt",
+    "pen_winner": null
+  },
+  {
+    "num": 15,
+    "date": "Sat, 4 Jul",
+    "time": "00:00",
+    "home": "Argentina",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Cabo Verde",
+    "pen_winner": null
+  },
+  {
+    "num": 16,
+    "date": "Sat, 4 Jul",
+    "time": "03:30",
+    "home": "Colombia",
+    "home_goals": null,
+    "away_goals": null,
+    "away": "Ghana",
+    "pen_winner": null
+  }
+]

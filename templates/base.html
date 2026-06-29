@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}World Cup 2026 Pool{% endblock %}</title>
+<style>
+  :root {
+    --pitch:      #0B3D2E;
+    --pitch-dark: #072920;
+    --chalk:      #F7F4EC;
+    --gold:       #D4A437;
+    --gold-bright:#F0C75E;
+    --ink:        #1A1A1A;
+    --ink-soft:   #5B6B63;
+    --line:       #E4E0D4;
+    --win:        #2E7D4F;
+    --loss:       #B0382B;
+    --card:       #FFFFFF;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: var(--chalk);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ---- Top bar: scoreboard style ---- */
+  .topbar {
+    background: var(--pitch);
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 40px);
+    color: var(--chalk);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 4px solid var(--gold);
+  }
+
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .brand .ball { font-size: 1.4rem; }
+
+  .brand h1 {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .brand .year {
+    color: var(--gold-bright);
+  }
+
+  nav {
+    display: flex;
+    gap: 8px;
+  }
+
+  nav a {
+    color: var(--chalk);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(247,244,236,0.25);
+    transition: all 0.15s ease;
+  }
+
+  nav a:hover, nav a.active {
+    background: var(--gold);
+    color: var(--pitch-dark);
+    border-color: var(--gold);
+  }
+
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+
+  .flash {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .flash.success { background: #E3F2E9; color: var(--win); border: 1px solid var(--win); }
+  .flash.error   { background: #FBE9E7; color: var(--loss); border: 1px solid var(--loss); }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 600px) {
+    .topbar { padding: 14px 16px; }
+    nav a { padding: 6px 10px; font-size: 0.75rem; }
+    main { padding: 20px 14px 50px; }
+  }
+</style>
+{% block extra_style %}{% endblock %}
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <span class="ball">⚽</span>
+    <h1>R32 Pool <span class="year">2026</span></h1>
+  </div>
+  <nav>
+    <a href="{{ url_for('leaderboard') }}" class="{{ 'active' if active_page == 'leaderboard' else '' }}">Leaderboard</a>
+    <a href="{{ url_for('select_player') }}" class="{{ 'active' if active_page == 'predict' else '' }}">My Predictions</a>
+    <a href="{{ url_for('group_history') }}" class="{{ 'active' if active_page == 'history' else '' }}">Group Stage</a>
+  </nav>
+</div>
+
+<main>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+</main>
+
+<footer>World Cup 2026 Prediction Pool &middot; Built for the team</footer>
+
+</body>
+</html>

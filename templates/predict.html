@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+{% block title %}{{ player_name }}'s Predictions — Round of 32{% endblock %}
+
+{% block extra_style %}
+<style>
+  .predict-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .predict-header h2 {
+    font-size: 1.4rem;
+    margin: 0;
+    color: var(--pitch);
+  }
+  .switch-link {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    text-decoration: underline;
+  }
+  .predict-sub {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .legend {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 14px;
+  }
+  .swatch {
+    width: 11px; height: 11px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .swatch.yellow { background: #FFFDF2; border: 2px solid var(--gold); }
+  .swatch.pink   { background: #F8E4F1; border: 2px solid #9C4F8F; }
+  .swatch.grey   { background: #EFEDE4; }
+
+  .match-ticket {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .match-ticket.locked { background: #FAFAF7; }
+
+  .match-meta {
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    width: 78px;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  .teams {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .team-name { flex: 1; text-align: right; }
+  .team-name.away { text-align: left; }
+
+  .score-inputs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .score-inputs input {
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    background: #FFFDF2;
+    color: var(--ink);
+  }
+  .score-inputs input:focus { outline: none; border-color: var(--pitch); background: #fff; }
+  .score-inputs span { color: var(--ink-soft); font-weight: 700; }
+
+  .actual-score {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    min-width: 70px;
+    justify-content: center;
+  }
+  .actual-score .box {
+    width: 42px; height: 42px; line-height: 42px;
+    text-align: center;
+    background: #EFEDE4;
+    border-radius: 6px;
+  }
+
+  .pen-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 130px;
+  }
+  .pen-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #9C4F8F;
+    font-weight: 700;
+  }
+  .pen-select {
+    border: 2px solid #9C4F8F;
+    background: #FCF3FA;
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    min-width: 120px;
+  }
+  .pen-select:focus { outline: none; background: #fff; }
+  .pen-actual {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    background: #EFEDE4;
+    padding: 7px 12px;
+    border-radius: 6px;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  .points-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .points-pill.high { background: #E3F2E9; color: var(--win); }
+  .points-pill.mid { background: #FFF3DA; color: #8A6310; }
+  .points-pill.zero { background: #FBE9E7; color: var(--loss); }
+  .points-pill.pending { background: #EFEDE4; color: var(--ink-soft); }
+
+  .save-bar {
+    position: sticky;
+    bottom: 0;
+    background: var(--chalk);
+    padding: 16px 0;
+    margin-top: 10px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  .save-btn {
+    background: var(--pitch);
+    color: var(--chalk);
+    border: none;
+    padding: 14px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: background 0.15s;
+  }
+  .save-btn:hover { background: var(--pitch-dark); }
+
+  @media (max-width: 600px) {
+    .match-ticket { flex-direction: column; align-items: stretch; }
+    .teams { justify-content: space-between; }
+    .team-name, .team-name.away { text-align: center; }
+    .actual-score, .score-inputs, .pen-section { justify-content: center; align-items: center; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="predict-header">
+  <h2>{{ player_name }}'s Predictions</h2>
+  <a class="switch-link" href="{{ url_for('select_player') }}">Not you? Switch player</a>
+</div>
+<div class="predict-sub">
+  <span class="legend"><span class="swatch yellow"></span>Your final score (covers normal + extra time)</span>
+  <span class="legend"><span class="swatch pink"></span>Your penalty shootout pick</span>
+  <span class="legend"><span class="swatch grey"></span>Actual result (locked)</span>
+</div>
+
+<form method="POST" action="{{ url_for('predict', player_name=player_name) }}">
+  {% for m in matches %}
+    {% set is_locked = m.actual_home is not none %}
+    <div class="match-ticket {{ 'locked' if is_locked else '' }}">
+      <div class="match-meta">#{{ m.num }}<br>{{ m.date }}<br>{{ m.time }}</div>
+
+      <div class="teams">
+        <span class="team-name">{{ m.home }}</span>
+
+        {% if is_locked %}
+          <div class="actual-score">
+            <span class="box">{{ m.actual_home }}</span>
+            <span>–</span>
+            <span class="box">{{ m.actual_away }}</span>
+          </div>
+        {% else %}
+          <div class="score-inputs">
+            <input type="number" min="0" max="20" name="home_{{ m.num }}"
+                   value="{{ m.pred_home if m.pred_home is not none else '' }}" placeholder="–">
+            <span>–</span>
+            <input type="number" min="0" max="20" name="away_{{ m.num }}"
+                   value="{{ m.pred_away if m.pred_away is not none else '' }}" placeholder="–">
+          </div>
+        {% endif %}
+
+        <span class="team-name away">{{ m.away }}</span>
+      </div>
+
+      <div class="pen-section">
+        <span class="pen-label">Penalty winner</span>
+        {% if is_locked %}
+          <span class="pen-actual">{{ m.actual_pen_winner if m.actual_pen_winner else '— no shootout —' }}</span>
+        {% else %}
+          <select class="pen-select" name="pen_{{ m.num }}">
+            <option value="">— pick if drawn —</option>
+            <option value="{{ m.home }}" {{ 'selected' if m.pen_pick == m.home else '' }}>{{ m.home }}</option>
+            <option value="{{ m.away }}" {{ 'selected' if m.pen_pick == m.away else '' }}>{{ m.away }}</option>
+          </select>
+        {% endif %}
+      </div>
+
+      {% if is_locked %}
+        {% if m.points is none %}
+          <span class="points-pill pending">No prediction made</span>
+        {% elif m.points >= 5 %}
+          <span class="points-pill high">+{{ m.points }} pts</span>
+        {% elif m.points > 0 %}
+          <span class="points-pill mid">+{{ m.points }} pts</span>
+        {% else %}
+          <span class="points-pill zero">0 pts</span>
+        {% endif %}
+      {% else %}
+        <span class="points-pill pending">not played</span>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <div class="save-bar">
+    <button type="submit" class="save-btn">Save my predictions</button>
+  </div>
+</form>
+{% endblock %}

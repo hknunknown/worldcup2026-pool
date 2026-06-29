@@ -1,0 +1,107 @@
+[
+  {
+    "rank": "🥇 1",
+    "name": "Szymon",
+    "total_points": 110,
+    "correct_results": 40,
+    "exact_scores": 10
+  },
+  {
+    "rank": "🥈 2",
+    "name": "Maria",
+    "total_points": 102,
+    "correct_results": 39,
+    "exact_scores": 8
+  },
+  {
+    "rank": "🥉 3",
+    "name": "Pragin",
+    "total_points": 101,
+    "correct_results": 40,
+    "exact_scores": 7
+  },
+  {
+    "rank": 4,
+    "name": "Vikash",
+    "total_points": 96,
+    "correct_results": 36,
+    "exact_scores": 8
+  },
+  {
+    "rank": 5,
+    "name": "Souvik",
+    "total_points": 93,
+    "correct_results": 39,
+    "exact_scores": 5
+  },
+  {
+    "rank": 6,
+    "name": "Aditya",
+    "total_points": 85,
+    "correct_results": 35,
+    "exact_scores": 5
+  },
+  {
+    "rank": 7,
+    "name": "Shubham",
+    "total_points": 80,
+    "correct_results": 34,
+    "exact_scores": 4
+  },
+  {
+    "rank": 8,
+    "name": "Mateusz",
+    "total_points": 79,
+    "correct_results": 32,
+    "exact_scores": 5
+  },
+  {
+    "rank": 9,
+    "name": "Neha",
+    "total_points": 57,
+    "correct_results": 21,
+    "exact_scores": 5
+  },
+  {
+    "rank": 10,
+    "name": "Santosh",
+    "total_points": 55,
+    "correct_results": 23,
+    "exact_scores": 3
+  },
+  {
+    "rank": 11,
+    "name": "Mijke",
+    "total_points": 34,
+    "correct_results": 14,
+    "exact_scores": 2
+  },
+  {
+    "rank": 12,
+    "name": "Pankaj",
+    "total_points": 22,
+    "correct_results": 11,
+    "exact_scores": 0
+  },
+  {
+    "rank": 13,
+    "name": "Drew",
+    "total_points": 12,
+    "correct_results": 6,
+    "exact_scores": 0
+  },
+  {
+    "rank": 14,
+    "name": "Kamal",
+    "total_points": 0,
+    "correct_results": 0,
+    "exact_scores": 0
+  },
+  {
+    "rank": 15,
+    "name": "Prasenjit",
+    "total_points": 0,
+    "correct_results": 0,
+    "exact_scores": 0
+  }
+]

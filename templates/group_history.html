@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block title %}Group Stage History{% endblock %}
+
+{% block extra_style %}
+<style>
+  .hist-header { margin-bottom: 18px; }
+  .hist-header h2 { font-size: 1.4rem; margin: 0 0 4px; color: var(--pitch); }
+  .hist-header .sub { color: var(--ink-soft); font-size: 0.85rem; }
+
+  .section-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--pitch);
+    font-weight: 700;
+    margin: 28px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  table.board {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  table.board thead th {
+    background: var(--pitch);
+    color: var(--chalk);
+    text-align: left;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px;
+  }
+  table.board thead th.num { text-align: center; }
+  table.board tbody td {
+    padding: 10px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.85rem;
+  }
+  table.board tbody td.num { text-align: center; font-variant-numeric: tabular-nums; }
+  table.board tbody tr:last-child td { border-bottom: none; }
+
+  tr.top1 { background: linear-gradient(90deg, rgba(212,164,55,0.12), transparent 60%); }
+  tr.top2 { background: linear-gradient(90deg, rgba(212,164,55,0.07), transparent 60%); }
+  tr.top3 { background: linear-gradient(90deg, rgba(212,164,55,0.04), transparent 60%); }
+  .player-name { font-weight: 600; }
+  .total-pts { font-weight: 800; color: var(--win); }
+
+  .match-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+  }
+  .match-row .stage-tag {
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    width: 64px;
+    flex-shrink: 0;
+  }
+  .match-row .teams {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+  }
+  .match-row .score {
+    font-weight: 800;
+    color: var(--win);
+    min-width: 50px;
+    text-align: center;
+  }
+  .toggle-matches {
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    color: var(--pitch);
+    cursor: pointer;
+    margin-top: 14px;
+  }
+  .toggle-matches:hover { background: #FAF8F2; }
+  #matches-list { display: none; }
+  #matches-list.shown { display: block; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hist-header">
+  <h2>📜 Group Stage — Final Results</h2>
+  <div class="sub">This stage is complete. Shown here for reference only — no new predictions.</div>
+</div>
+
+<div class="section-label">Final Standings</div>
+<table class="board">
+  <thead>
+    <tr>
+      <th class="num">Rank</th>
+      <th>Player</th>
+      <th class="num">Correct Results</th>
+      <th class="num">Exact Scores</th>
+      <th class="num">Total Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in leaderboard %}
+    <tr class="{{ 'top1' if loop.index == 1 else 'top2' if loop.index == 2 else 'top3' if loop.index == 3 else '' }}">
+      <td class="num">{{ row.rank_label }}</td>
+      <td class="player-name">{{ row.name }}</td>
+      <td class="num">{{ row.correct_results }}</td>
+      <td class="num">{{ row.exact_scores }}</td>
+      <td class="num total-pts">{{ row.total_points }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<button class="toggle-matches" onclick="document.getElementById('matches-list').classList.toggle('shown'); this.textContent = this.textContent.includes('Show') ? 'Hide all 72 match results' : 'Show all 72 match results'">Show all 72 match results</button>
+
+<div id="matches-list">
+  <div class="section-label">All Matches</div>
+  {% for m in matches %}
+  <div class="match-row">
+    <span class="stage-tag">{{ m.stage }}</span>
+    <span class="teams">
+      <span>{{ m.home }}</span>
+      {% if m.home_goals is not none %}
+        <span class="score">{{ m.home_goals }} – {{ m.away_goals }}</span>
+      {% else %}
+        <span class="score" style="color: var(--ink-soft);">not played</span>
+      {% endif %}
+      <span>{{ m.away }}</span>
+    </span>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

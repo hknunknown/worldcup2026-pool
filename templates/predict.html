@@ -95,21 +95,48 @@
   .score-inputs input:focus { outline: none; border-color: var(--pitch); background: #fff; }
   .score-inputs span { color: var(--ink-soft); font-weight: 700; }
 
-  .actual-score {
+  .locked-comparison {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    min-width: 70px;
-    justify-content: center;
+    gap: 16px;
   }
-  .actual-score .box {
-    width: 42px; height: 42px; line-height: 42px;
-    text-align: center;
+  .pred-vs-actual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .comparison-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  .pred-vs-actual.actual .comparison-label { color: var(--win); }
+  .comparison-score {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--ink);
     background: #EFEDE4;
+    padding: 6px 14px;
     border-radius: 6px;
+    min-width: 60px;
+    text-align: center;
+  }
+  .pred-vs-actual.actual .comparison-score {
+    background: #E3F2E9;
+    color: var(--win);
+  }
+  .comparison-score .no-pred {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--loss);
+  }
+  .pen-your-pick {
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    font-weight: 500;
   }
 
   .pen-section {
@@ -188,7 +215,7 @@
     .match-ticket { flex-direction: column; align-items: stretch; }
     .teams { justify-content: space-between; }
     .team-name, .team-name.away { text-align: center; }
-    .actual-score, .score-inputs, .pen-section { justify-content: center; align-items: center; }
+    .locked-comparison, .score-inputs, .pen-section { justify-content: center; align-items: center; }
   }
 </style>
 {% endblock %}
@@ -214,10 +241,21 @@
         <span class="team-name">{{ m.home }}</span>
 
         {% if is_locked %}
-          <div class="actual-score">
-            <span class="box">{{ m.actual_home }}</span>
-            <span>–</span>
-            <span class="box">{{ m.actual_away }}</span>
+          <div class="locked-comparison">
+            <div class="pred-vs-actual">
+              <span class="comparison-label">Your pick</span>
+              <span class="comparison-score">
+                {% if m.pred_home is not none and m.pred_away is not none %}
+                  {{ m.pred_home }} – {{ m.pred_away }}
+                {% else %}
+                  <span class="no-pred">— none —</span>
+                {% endif %}
+              </span>
+            </div>
+            <div class="pred-vs-actual actual">
+              <span class="comparison-label">Final score</span>
+              <span class="comparison-score">{{ m.actual_home }} – {{ m.actual_away }}</span>
+            </div>
           </div>
         {% else %}
           <div class="score-inputs">
@@ -235,7 +273,15 @@
       <div class="pen-section">
         <span class="pen-label">Penalty winner</span>
         {% if is_locked %}
-          <span class="pen-actual">{{ m.actual_pen_winner if m.actual_pen_winner else '— no shootout —' }}</span>
+          <span class="pen-actual">
+            {% if m.actual_pen_winner %}
+              {{ m.actual_pen_winner }} won shootout
+              {% if m.pen_pick %}<br><span class="pen-your-pick">(you picked: {{ m.pen_pick }})</span>{% endif %}
+            {% else %}
+              — no shootout —
+              {% if m.pen_pick %}<br><span class="pen-your-pick">(you picked: {{ m.pen_pick }})</span>{% endif %}
+            {% endif %}
+          </span>
         {% else %}
           <select class="pen-select" name="pen_{{ m.num }}">
             <option value="">— pick if drawn —</option>

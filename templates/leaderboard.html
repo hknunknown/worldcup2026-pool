@@ -55,12 +55,49 @@
   }
   table.board tbody td.num { text-align: center; font-variant-numeric: tabular-nums; }
   table.board tbody tr:last-child td { border-bottom: none; }
-  table.board tbody tr:hover { background: #FAF8F2; }
+  table.board tbody tr {
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  table.board tbody tr:hover {
+    background: #FAF8F2;
+  }
+  table.board tbody tr.top1:hover,
+  table.board tbody tr.top2:hover,
+  table.board tbody tr.top3:hover {
+    transform: translateX(2px);
+  }
 
   .rank-cell { font-weight: 700; width: 44px; }
-  .medal { font-size: 1.05rem; }
+  .medal {
+    font-size: 1.1rem;
+    display: inline-block;
+    animation: medal-idle 3s ease-in-out infinite;
+    cursor: default;
+  }
+  tr.top1 .medal {
+    cursor: pointer;
+    animation-delay: 0s;
+  }
+  tr.top2 .medal { animation-delay: 0.3s; }
+  tr.top3 .medal { animation-delay: 0.6s; }
 
-  tr.top1 { background: linear-gradient(90deg, rgba(212,164,55,0.12), transparent 60%); }
+  @keyframes medal-idle {
+    0%, 85%, 100% { transform: rotate(0deg) scale(1); }
+    90% { transform: rotate(-12deg) scale(1.12); }
+    95% { transform: rotate(10deg) scale(1.08); }
+  }
+
+  tr.top1 {
+    background: linear-gradient(90deg, rgba(212,164,55,0.18), transparent 65%);
+    position: relative;
+  }
+  tr.top1::after {
+    content: "👑";
+    position: absolute;
+    right: 16px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
   tr.top2 { background: linear-gradient(90deg, rgba(212,164,55,0.07), transparent 60%); }
   tr.top3 { background: linear-gradient(90deg, rgba(212,164,55,0.04), transparent 60%); }
 
@@ -114,7 +151,7 @@
     {% for row in leaderboard %}
     <tr class="{{ 'top1' if row.rank == 1 else 'top2' if row.rank == 2 else 'top3' if row.rank == 3 else '' }}">
       <td class="num rank-cell">
-        {% if row.rank == 1 %}<span class="medal">🥇</span>
+        {% if row.rank == 1 %}<span class="medal" onclick="confettiBurst(event.clientX, event.clientY)" title="Click me!">🥇</span>
         {% elif row.rank == 2 %}<span class="medal">🥈</span>
         {% elif row.rank == 3 %}<span class="medal">🥉</span>
         {% else %}{{ row.rank }}{% endif %}

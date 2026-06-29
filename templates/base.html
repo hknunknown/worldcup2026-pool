@@ -30,9 +30,55 @@
   body {
     margin: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: var(--chalk);
     color: var(--ink);
     min-height: 100vh;
+    background-color: var(--chalk);
+    background-image:
+      /* center circle, faint */
+      radial-gradient(circle at 50% 38%, transparent 0, transparent 130px, rgba(11,61,46,0.05) 132px, rgba(11,61,46,0.05) 136px, transparent 138px),
+      /* halfway line, faint */
+      linear-gradient(180deg, transparent 0, transparent calc(38% - 1px), rgba(11,61,46,0.06) calc(38% - 1px), rgba(11,61,46,0.06) 38%, transparent 38%),
+      /* mown-pitch stripes */
+      repeating-linear-gradient(115deg, rgba(11,61,46,0.035) 0px, rgba(11,61,46,0.035) 90px, transparent 90px, transparent 180px),
+      /* floodlight glow, top corners */
+      radial-gradient(circle at 8% -5%, rgba(240,199,94,0.16), transparent 32%),
+      radial-gradient(circle at 95% 0%, rgba(240,199,94,0.13), transparent 30%),
+      /* overall vignette for depth */
+      radial-gradient(ellipse at 50% 0%, rgba(11,61,46,0.04), transparent 60%);
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+  }
+
+  /* drifting confetti specks - decorative only, ignored by screen readers */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+    background-image:
+      radial-gradient(circle, var(--gold-bright) 1.5px, transparent 1.5px),
+      radial-gradient(circle, var(--confetti-3) 1.5px, transparent 1.5px),
+      radial-gradient(circle, var(--confetti-2) 1.5px, transparent 1.5px);
+    background-size: 180px 180px, 240px 240px, 200px 200px;
+    background-position: 20px 30px, 140px 90px, 80px 160px;
+    animation: drift 60s linear infinite;
+  }
+
+  @keyframes drift {
+    from { background-position: 20px 30px, 140px 90px, 80px 160px; }
+    to   { background-position: 20px 1830px, 140px 2490px, 80px 2160px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body::before { animation: none; }
+  }
+
+  .topbar, main, footer {
+    position: relative;
+    z-index: 1;
   }
 
   /* ---- Top bar: scoreboard style ---- */

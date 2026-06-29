@@ -4,8 +4,8 @@
     "date": "Sun, 28 Jun",
     "time": "21:00",
     "home": "South Africa",
-    "home_goals": null,
-    "away_goals": null,
+    "home_goals": 0,
+    "away_goals": 1,
     "away": "Canada",
     "pen_winner": null
   },
@@ -14,8 +14,8 @@
     "date": "Mon, 29 Jun",
     "time": "19:00",
     "home": "Brazil",
-    "home_goals": null,
-    "away_goals": null,
+    "home_goals": 2,
+    "away_goals": 1,
     "away": "Japan",
     "pen_winner": null
   },

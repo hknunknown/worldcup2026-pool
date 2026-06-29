@@ -1,17 +1,515 @@
 {
-  "Mijke": {},
-  "Maria": {},
-  "Szymon": {},
-  "Mateusz": {},
-  "Souvik": {},
+  "Mijke": {
+    "2": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "3": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "4": {
+      "home": 3,
+      "away": 2,
+      "pen_pick": null
+    },
+    "5": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": null
+    },
+    "6": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": null
+    },
+    "7": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "8": {
+      "home": 1,
+      "away": 0,
+      "pen_pick": null
+    },
+    "9": {
+      "home": 1,
+      "away": 3,
+      "pen_pick": null
+    },
+    "10": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "11": {
+      "home": 1,
+      "away": 0,
+      "pen_pick": null
+    },
+    "12": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": null
+    },
+    "13": {
+      "home": 0,
+      "away": 2,
+      "pen_pick": null
+    },
+    "14": {
+      "home": 1,
+      "away": 3,
+      "pen_pick": null
+    },
+    "15": {
+      "home": 4,
+      "away": 0,
+      "pen_pick": null
+    },
+    "16": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": null
+    }
+  },
+  "Maria": {
+    "2": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "3": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "Germany"
+    },
+    "4": {
+      "home": 1,
+      "away": 0,
+      "pen_pick": null
+    },
+    "5": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": null
+    },
+    "6": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "7": {
+      "home": 1,
+      "away": 0,
+      "pen_pick": null
+    },
+    "8": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "England"
+    },
+    "9": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "Belgium"
+    },
+    "10": {
+      "home": 3,
+      "away": 2,
+      "pen_pick": null
+    },
+    "11": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "12": {
+      "home": 3,
+      "away": 4,
+      "pen_pick": null
+    }
+  },
+  "Szymon": {
+    "2": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "3": {
+      "home": 1,
+      "away": 0,
+      "pen_pick": null
+    },
+    "4": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "5": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": null
+    },
+    "6": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": null
+    },
+    "7": {
+      "home": 1,
+      "away": 1,
+      "pen_pick": "Mexico"
+    },
+    "8": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": null
+    },
+    "9": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": null
+    },
+    "10": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "11": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "12": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "13": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "14": {
+      "home": 0,
+      "away": 1,
+      "pen_pick": null
+    },
+    "15": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": null
+    },
+    "16": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    }
+  },
+  "Mateusz": {
+    "2": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": null
+    },
+    "3": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": null
+    },
+    "4": {
+      "home": 3,
+      "away": 2,
+      "pen_pick": null
+    }
+  },
+  "Souvik": {
+    "2": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "3": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": null
+    },
+    "4": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "5": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": null
+    },
+    "6": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": null
+    },
+    "7": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "8": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "9": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": null
+    },
+    "10": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "11": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": null
+    },
+    "12": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "13": {
+      "home": 1,
+      "away": 1,
+      "pen_pick": "Switzerland"
+    },
+    "14": {
+      "home": 2,
+      "away": 2,
+      "pen_pick": "Egypt"
+    },
+    "15": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": null
+    },
+    "16": {
+      "home": 1,
+      "away": 1,
+      "pen_pick": "Ghana"
+    }
+  },
   "Santosh": {},
   "Shubham": {},
-  "Neha": {},
+  "Neha": {
+    "2": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "3": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "4": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": null
+    },
+    "5": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": null
+    },
+    "6": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": null
+    },
+    "7": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": null
+    },
+    "8": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": null
+    }
+  },
   "Vikash": {},
-  "Aditya": {},
+  "Aditya": {
+    "1": {
+      "home": null,
+      "away": null,
+      "pen_pick": "South Africa"
+    },
+    "2": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "Brazil"
+    },
+    "3": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "Germany"
+    },
+    "4": {
+      "home": 1,
+      "away": 1,
+      "pen_pick": "Netherlands"
+    },
+    "5": {
+      "home": 1,
+      "away": 2,
+      "pen_pick": "Norway"
+    },
+    "6": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": "France"
+    },
+    "7": {
+      "home": 1,
+      "away": 0,
+      "pen_pick": "Mexico"
+    },
+    "8": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": "England"
+    },
+    "9": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "Belgium"
+    },
+    "10": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "USA"
+    },
+    "11": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": "Spain"
+    },
+    "12": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "Portugal"
+    },
+    "13": {
+      "home": 1,
+      "away": 0,
+      "pen_pick": "Switzerland"
+    },
+    "14": {
+      "home": 0,
+      "away": 1,
+      "pen_pick": "Egypt"
+    },
+    "15": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": "Argentina"
+    },
+    "16": {
+      "home": 1,
+      "away": 0,
+      "pen_pick": "Colombia"
+    }
+  },
   "Pankaj": {},
   "Kamal": {},
-  "Pragin": {},
+  "Pragin": {
+    "1": {
+      "home": null,
+      "away": null,
+      "pen_pick": "South Africa"
+    },
+    "2": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": "Brazil"
+    },
+    "3": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": "Germany"
+    },
+    "4": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": "Netherlands"
+    },
+    "5": {
+      "home": 0,
+      "away": 3,
+      "pen_pick": "Norway"
+    },
+    "6": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": "France"
+    },
+    "7": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": "Mexico"
+    },
+    "8": {
+      "home": 3,
+      "away": 0,
+      "pen_pick": "England"
+    },
+    "9": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": "Belgium"
+    },
+    "10": {
+      "home": 2,
+      "away": 0,
+      "pen_pick": "USA"
+    },
+    "11": {
+      "home": 3,
+      "away": 1,
+      "pen_pick": "Spain"
+    },
+    "12": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "Portugal"
+    },
+    "13": {
+      "home": 2,
+      "away": 1,
+      "pen_pick": "Switzerland"
+    },
+    "14": {
+      "home": 0,
+      "away": 2,
+      "pen_pick": "Egypt"
+    },
+    "15": {
+      "home": 4,
+      "away": 0,
+      "pen_pick": "Argentina"
+    },
+    "16": {
+      "home": 2,
+      "away": 2,
+      "pen_pick": "Colombia"
+    }
+  },
   "Drew": {},
   "Prasenjit": {}
 }

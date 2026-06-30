@@ -212,6 +212,29 @@ def get_r32_team_names():
     return sorted(set(r["team"] for r in rows))
 
 
+def get_r32_fixtures():
+    """Returns all R32 matches with date/time/teams and result status, for the public Fixtures page."""
+    conn = get_connection()
+    matches = conn.execute("SELECT * FROM r32_matches ORDER BY num").fetchall()
+    conn.close()
+
+    result = []
+    for m in matches:
+        played = m["home_goals"] is not None
+        result.append({
+            "num": m["num"],
+            "date": m["date"],
+            "time": m["time"],
+            "home": m["home"],
+            "away": m["away"],
+            "played": played,
+            "home_goals": m["home_goals"],
+            "away_goals": m["away_goals"],
+            "pen_winner": m["pen_winner"],
+        })
+    return result
+
+
 # ── Group Stage (read-only history) ──────────────────────────────────────────
 
 def get_group_stage_history():

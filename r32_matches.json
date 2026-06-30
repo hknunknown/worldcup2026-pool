@@ -44,8 +44,8 @@
     "date": "Tue, 30 Jun",
     "time": "19:00",
     "home": "Côte d'Ivoire",
-    "home_goals": null,
-    "away_goals": null,
+    "home_goals": 1,
+    "away_goals": 2,
     "away": "Norway",
     "pen_winner": null
   },

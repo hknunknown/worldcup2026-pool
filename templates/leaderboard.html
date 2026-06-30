@@ -103,6 +103,18 @@
 
   .player-name { font-weight: 600; }
 
+  .player-link {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .player-link:hover {
+    color: var(--win);
+    border-bottom-color: var(--win);
+  }
+  .player-link:visited { color: var(--ink); }
+
   .total-pts {
     font-weight: 800;
     font-size: 1.0rem;
@@ -156,7 +168,7 @@
         {% elif row.rank == 3 %}<span class="medal">🥉</span>
         {% else %}{{ row.rank }}{% endif %}
       </td>
-      <td class="player-name">{{ row.name }}</td>
+      <td class="player-name"><a href="{{ url_for('predict', player_name=row.name) }}" class="player-link">{{ row.name }}</a></td>
       <td class="num">{{ row.correct_results }}</td>
       <td class="num">{{ row.exact_scores }}</td>
       <td class="num subtle">{{ row.winner_pts }}</td>

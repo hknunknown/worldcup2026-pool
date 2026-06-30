@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from database import init_db, seed_initial_data
 from scoring import (
     get_r32_leaderboard, get_r32_player_predictions, save_r32_prediction,
-    get_all_players, get_group_stage_history
+    get_all_players, get_group_stage_history, get_r32_fixtures
 )
 
 app = Flask(__name__)
@@ -90,6 +90,12 @@ def group_history():
         leaderboard=data["leaderboard"],
         active_page="history",
     )
+
+
+@app.route("/fixtures")
+def fixtures():
+    matches = get_r32_fixtures()
+    return render_template("fixtures.html", matches=matches, active_page="fixtures")
 
 
 if __name__ == "__main__":

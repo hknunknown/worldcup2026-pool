@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title %}Fixtures — Round of 32{% endblock %}
+
+{% block extra_style %}
+<style>
+  .fx-header { margin-bottom: 18px; }
+  .fx-header h2 { font-size: 1.4rem; margin: 0 0 4px; color: var(--pitch); }
+  .fx-header .sub { color: var(--ink-soft); font-size: 0.85rem; }
+
+  .date-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--pitch);
+    font-weight: 700;
+    margin: 26px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .date-label:first-of-type { margin-top: 4px; }
+  .date-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .fixture-card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 8px rgba(11,61,46,0.06);
+    padding: 13px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    transition: transform 0.15s ease;
+  }
+  .fixture-card:hover { transform: translateX(2px); }
+  .fixture-card.played { background: #FAFAF7; }
+
+  .fx-time {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    width: 56px;
+    flex-shrink: 0;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .fx-teams {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .fx-team { flex: 1; text-align: right; }
+  .fx-team.away { text-align: left; }
+
+  .fx-score {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--win);
+    background: #E3F2E9;
+    padding: 6px 14px;
+    border-radius: 6px;
+    min-width: 64px;
+    text-align: center;
+  }
+  .fx-vs {
+    font-weight: 700;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    min-width: 64px;
+    text-align: center;
+  }
+
+  .fx-pen-tag {
+    font-size: 0.65rem;
+    color: #7B2D8B;
+    font-weight: 700;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .fx-status {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .fx-status.upcoming { background: #FFF3DA; color: #8A6310; }
+  .fx-status.final { background: #EFEDE4; color: var(--ink-soft); }
+
+  @media (max-width: 600px) {
+    .fixture-card { flex-direction: column; align-items: stretch; }
+    .fx-teams { justify-content: space-between; }
+    .fx-team, .fx-team.away { text-align: center; }
+    .fx-status { align-self: center; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="fx-header">
+  <h2>📅 Round of 32 — Fixtures</h2>
+  <div class="sub">All match dates and times. Results update automatically once played.</div>
+</div>
+
+{% set ns = namespace(current_date="") %}
+{% for m in matches %}
+  {% if m.date != ns.current_date %}
+    <div class="date-label">{{ m.date }}</div>
+    {% set ns.current_date = m.date %}
+  {% endif %}
+
+  <div class="fixture-card {{ 'played' if m.played else '' }}">
+    <div class="fx-time">{{ m.time }}</div>
+
+    <div class="fx-teams">
+      <span class="fx-team">{{ m.home }}</span>
+
+      {% if m.played %}
+        <div>
+          <span class="fx-score">{{ m.home_goals }} – {{ m.away_goals }}</span>
+          {% if m.pen_winner %}<span class="fx-pen-tag">{{ m.pen_winner }} won on pens</span>{% endif %}
+        </div>
+      {% else %}
+        <span class="fx-vs">vs</span>
+      {% endif %}
+
+      <span class="fx-team away">{{ m.away }}</span>
+    </div>
+
+    {% if m.played %}
+      <span class="fx-status final">Final</span>
+    {% else %}
+      <span class="fx-status upcoming">Upcoming</span>
+    {% endif %}
+  </div>
+{% endfor %}
+{% endblock %}

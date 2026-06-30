@@ -24,20 +24,20 @@
     "date": "Mon, 29 Jun",
     "time": "22:30",
     "home": "Germany",
-    "home_goals": null,
-    "away_goals": null,
+    "home_goals": 1,
+    "away_goals": 1,
     "away": "Paraguay",
-    "pen_winner": null
+    "pen_winner": "Paraguay"
   },
   {
     "num": 4,
     "date": "Tue, 30 Jun",
     "time": "03:00",
     "home": "Netherlands",
-    "home_goals": null,
-    "away_goals": null,
+    "home_goals": 1,
+    "away_goals": 1,
     "away": "Morocco",
-    "pen_winner": null
+    "pen_winner": "Morocco"
   },
   {
     "num": 5,

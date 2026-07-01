@@ -101,6 +101,17 @@ def fixtures():
     return render_template("fixtures.html", matches=matches, active_page="fixtures")
 
 
+@app.route("/admin/clear", methods=["POST"])
+def admin_clear():
+    if not session.get("admin_authed"):
+        return redirect(url_for("admin"))
+
+    match_num = int(request.form.get("match_num"))
+    update_r32_result(match_num, None, None, None)
+    flash(f"✓ Match #{match_num} result cleared.", "success")
+    return redirect(url_for("admin"))
+
+
 @app.route("/admin", methods=["GET", "POST"])
 def admin():
     authed = session.get("admin_authed", False)

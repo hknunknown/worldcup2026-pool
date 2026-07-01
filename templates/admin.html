@@ -177,6 +177,22 @@
   }
   .team-update-btn:hover { background: var(--pitch-dark); }
 
+  .clear-btn {
+    background: none;
+    border: 1px solid var(--loss);
+    color: var(--loss);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .clear-btn:hover {
+    background: var(--loss);
+    color: white;
+  }
+
   @media (max-width: 600px) {
     .result-form { flex-direction: column; align-items: flex-start; }
     .save-match-btn { margin-left: 0; width: 100%; }
@@ -269,6 +285,16 @@
         <button type="submit" class="save-match-btn">Save Result</button>
       </div>
     </form>
+
+    {% if m.played %}
+    <form method="POST" action="/admin/clear" style="margin-top: 10px;">
+      <input type="hidden" name="match_num" value="{{ m.num }}">
+      <button type="submit" class="clear-btn"
+              onclick="return confirm('Clear the result for Match #{{ m.num }}? This is mainly for correcting mistakes.')">
+        ✕ Clear Result
+      </button>
+    </form>
+    {% endif %}
   </div>
   {% endfor %}
 {% endif %}

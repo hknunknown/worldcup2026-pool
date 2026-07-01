@@ -297,5 +297,66 @@
     {% endif %}
   </div>
   {% endfor %}
+  <!-- Enter predictions on behalf of a player -->
+  <div class="section-label" id="predictions">Enter Player Predictions (Admin Override)</div>
+  <div class="admin-card">
+    <p style="font-size:0.85rem;color:var(--ink-soft);margin:0 0 16px;">
+      Use this to enter predictions for players who submitted via Excel after a match already kicked off.
+      This bypasses the usual lock — double check before saving.
+    </p>
+    <form method="POST" action="/admin/prediction">
+      <div class="result-form" style="flex-wrap:wrap;gap:14px;">
+
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <label>Player</label>
+          <select name="player_name" style="border:2px solid var(--line);border-radius:6px;padding:9px 12px;font-size:0.9rem;font-weight:600;color:var(--ink);background:#fff;">
+            {% for p in all_players %}
+            <option value="{{ p }}">{{ p }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <label>Match</label>
+          <select name="match_num" style="border:2px solid var(--line);border-radius:6px;padding:9px 12px;font-size:0.9rem;font-weight:600;color:var(--ink);background:#fff;">
+            {% for m in matches %}
+            <option value="{{ m.num }}">#{{ m.num }} {{ m.home }} vs {{ m.away }}{% if m.played %} ✓{% endif %}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <label>Their Score Prediction</label>
+          <div class="score-group">
+            <input type="number" name="pred_home" min="0" max="20" placeholder="H">
+            <span>–</span>
+            <input type="number" name="pred_away" min="0" max="20" placeholder="A">
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <label>Their Penalty Pick</label>
+          <div class="pen-group">
+            <select name="pen_pick" style="border:2px solid #9C4F8F;background:#FCF3FA;border-radius:6px;padding:9px 12px;font-size:0.88rem;font-weight:600;">
+              <option value="">— none / no shootout —</option>
+              {% for m in matches %}
+              <optgroup label="#{{ m.num }} {{ m.home }} vs {{ m.away }}">
+                <option value="{{ m.home }}">{{ m.home }}</option>
+                <option value="{{ m.away }}">{{ m.away }}</option>
+              </optgroup>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="save-match-btn"
+                onclick="return confirm('Save this prediction on behalf of the selected player?')">
+          Save Prediction
+        </button>
+
+      </div>
+    </form>
+  </div>
+
 {% endif %}
 {% endblock %}

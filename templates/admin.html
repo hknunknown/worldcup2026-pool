@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+{% block title %}Admin — Commissioner Results Entry{% endblock %}
+
+{% block extra_style %}
+<style>
+  .admin-header { margin-bottom: 22px; }
+  .admin-header h2 { font-size: 1.4rem; margin: 0 0 4px; color: var(--pitch); }
+  .admin-header .sub { color: var(--ink-soft); font-size: 0.85rem; }
+
+  .admin-card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 8px rgba(11,61,46,0.06);
+    padding: 20px 24px;
+    margin-bottom: 10px;
+  }
+
+  .match-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .match-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    width: 52px;
+  }
+  .match-teams {
+    font-weight: 700;
+    font-size: 1rem;
+    flex: 1;
+  }
+  .match-date {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+  .already-played {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    background: #E3F2E9;
+    color: var(--win);
+  }
+
+  .result-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .result-form label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .score-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .score-group input[type=number] {
+    width: 50px;
+    height: 42px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    background: #FFFDF2;
+    color: var(--ink);
+  }
+  .score-group input:focus {
+    outline: none;
+    border-color: var(--pitch);
+    background: #fff;
+  }
+  .score-group span {
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+
+  .pen-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pen-group select {
+    border: 2px solid #9C4F8F;
+    background: #FCF3FA;
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .save-match-btn {
+    background: var(--pitch);
+    color: var(--chalk);
+    border: none;
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: background 0.15s, transform 0.15s;
+    margin-left: auto;
+  }
+  .save-match-btn:hover { background: var(--pitch-dark); transform: translateY(-1px); }
+  .save-match-btn:active { transform: translateY(0); }
+
+  .divider {
+    border: none;
+    border-top: 1px dashed var(--line);
+    margin: 10px 0 14px;
+  }
+
+  /* Team name updater section */
+  .section-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--pitch);
+    font-weight: 700;
+    margin: 28px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .team-update-row {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    padding: 14px 20px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .team-update-row input[type=text] {
+    flex: 1;
+    min-width: 160px;
+    border: 2px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+  .team-update-row input[type=text]:focus {
+    outline: none;
+    border-color: var(--pitch);
+  }
+  .team-update-btn {
+    background: var(--pitch);
+    color: var(--chalk);
+    border: none;
+    padding: 9px 18px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .team-update-btn:hover { background: var(--pitch-dark); }
+
+  @media (max-width: 600px) {
+    .result-form { flex-direction: column; align-items: flex-start; }
+    .save-match-btn { margin-left: 0; width: 100%; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+  <h2>🔧 Commissioner — Results Entry</h2>
+  <div class="sub">Enter results as matches finish. Changes go live instantly — no file uploads needed.</div>
+</div>
+
+{% if not authed %}
+  <!-- Password gate -->
+  <div class="admin-card" style="max-width: 360px;">
+    <form method="POST" action="/admin">
+      <div style="margin-bottom:16px;">
+        <label style="font-size:0.85rem;font-weight:700;display:block;margin-bottom:8px;">Commissioner Password</label>
+        <input type="password" name="password" autofocus
+               style="width:100%;border:2px solid var(--line);border-radius:6px;padding:10px 12px;font-size:1rem;box-sizing:border-box;"
+               placeholder="Enter password">
+      </div>
+      <button type="submit" class="save-match-btn" style="width:100%;margin-left:0;">
+        Enter Admin
+      </button>
+    </form>
+  </div>
+
+{% else %}
+  <!-- Team name updater (for TBD placeholders) -->
+  {% set tbd_matches = matches | selectattr('home', 'in', ['Team 1','Team 2','Team 3','Team 4','Team 5','Team 6','Team 7','Team 8','Team 9','Team 10']) | list %}
+  {% set tbd_away   = matches | selectattr('away', 'in', ['Team 1','Team 2','Team 3','Team 4','Team 5','Team 6','Team 7','Team 8','Team 9','Team 10']) | list %}
+  {% if tbd_matches or tbd_away %}
+  <div class="section-label">Update Unconfirmed Team Names</div>
+  {% for m in matches %}
+    {% if m.home.startswith('Team') or m.away.startswith('Team') %}
+    <div class="team-update-row">
+      <span style="font-weight:700;width:40px;color:var(--ink-soft);">#{{ m.num }}</span>
+      <form method="POST" action="/admin/team" style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap;">
+        <input type="hidden" name="match_num" value="{{ m.num }}">
+        <input type="text" name="home" value="{{ m.home }}" placeholder="Home team name">
+        <span style="font-weight:700;color:var(--ink-soft);">vs</span>
+        <input type="text" name="away" value="{{ m.away }}" placeholder="Away team name">
+        <button type="submit" class="team-update-btn">Update</button>
+      </form>
+    </div>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  <!-- Results entry -->
+  <div class="section-label">Enter Match Results</div>
+  {% for m in matches %}
+  <div class="admin-card">
+    <div class="match-header">
+      <span class="match-num">#{{ m.num }}</span>
+      <span class="match-teams">{{ m.home }} vs {{ m.away }}</span>
+      <span class="match-date">{{ m.date }}, {{ m.time }} CET</span>
+      {% if m.played %}
+        <span class="already-played">✓ {{ m.home_goals }}–{{ m.away_goals }}{% if m.pen_winner %} ({{ m.pen_winner }} pens){% endif %}</span>
+      {% endif %}
+    </div>
+
+    <hr class="divider">
+
+    <form method="POST" action="/admin/result">
+      <input type="hidden" name="match_num" value="{{ m.num }}">
+      <div class="result-form">
+        <label>Final Score</label>
+        <div class="score-group">
+          <input type="number" name="home_goals" min="0" max="20"
+                 value="{{ m.home_goals if m.home_goals is not none else '' }}"
+                 placeholder="–">
+          <span>–</span>
+          <input type="number" name="away_goals" min="0" max="20"
+                 value="{{ m.away_goals if m.away_goals is not none else '' }}"
+                 placeholder="–">
+        </div>
+
+        <label>Penalty Winner</label>
+        <div class="pen-group">
+          <select name="pen_winner">
+            <option value="">— no shootout —</option>
+            <option value="{{ m.home }}" {{ 'selected' if m.pen_winner == m.home else '' }}>{{ m.home }}</option>
+            <option value="{{ m.away }}" {{ 'selected' if m.pen_winner == m.away else '' }}>{{ m.away }}</option>
+          </select>
+        </div>
+
+        <button type="submit" class="save-match-btn">Save Result</button>
+      </div>
+    </form>
+  </div>
+  {% endfor %}
+{% endif %}
+{% endblock %}

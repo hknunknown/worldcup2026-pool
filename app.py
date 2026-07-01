@@ -10,7 +10,8 @@ from database import init_db, seed_initial_data
 from scoring import (
     get_r32_leaderboard, get_r32_player_predictions, save_r32_prediction,
     get_all_players, get_group_stage_history, get_r32_fixtures,
-    update_r32_result, get_r32_match, update_r32_team_name
+    update_r32_result, get_r32_match, update_r32_team_name,
+    admin_save_prediction
 )
 
 app = Flask(__name__)
@@ -101,6 +102,40 @@ def fixtures():
     return render_template("fixtures.html", matches=matches, active_page="fixtures")
 
 
+@app.route("/admin/prediction", methods=["POST"])
+def admin_prediction():
+    if not session.get("admin_authed"):
+        return redirect(url_for("admin"))
+
+    player_name = request.form.get("player_name", "").strip()
+    match_num = int(request.form.get("match_num"))
+    home_val = request.form.get("pred_home", "").strip()
+    away_val = request.form.get("pred_away", "").strip()
+    pen_pick = request.form.get("pen_pick", "").strip()
+
+    if home_val == "" or away_val == "":
+        flash(f"Please enter both home and away goals for the prediction.", "error")
+        return redirect(url_for("admin") + "#predictions")
+
+    try:
+        pred_home = int(home_val)
+        pred_away = int(away_val)
+    except ValueError:
+        flash("Goals must be numbers.", "error")
+        return redirect(url_for("admin") + "#predictions")
+
+    ok, msg = admin_save_prediction(player_name, match_num, pred_home, pred_away,
+                                     pen_pick if pen_pick else None)
+    match = get_r32_match(match_num)
+    if ok:
+        flash(f"✓ Saved {player_name}'s prediction for Match #{match_num} "
+              f"({match['home']} {pred_home}–{pred_away} {match['away']}).", "success")
+    else:
+        flash(f"Error: {msg}", "error")
+
+    return redirect(url_for("admin") + "#predictions")
+
+
 @app.route("/admin/clear", methods=["POST"])
 def admin_clear():
     if not session.get("admin_authed"):
@@ -123,10 +158,11 @@ def admin():
             flash("Welcome, Commissioner!", "success")
         else:
             flash("Wrong password.", "error")
-            return render_template("admin.html", authed=False, matches=[])
+            return render_template("admin.html", authed=False, matches=[], all_players=[])
 
     matches = get_r32_fixtures()
-    return render_template("admin.html", authed=authed, matches=matches, active_page="admin")
+    return render_template("admin.html", authed=authed, matches=matches,
+                           all_players=get_all_players(), active_page="admin")
 
 
 @app.route("/admin/result", methods=["POST"])

@@ -165,6 +165,36 @@ def get_r32_player_predictions(player_name):
     return result
 
 
+def admin_save_prediction(player_name, match_num, pred_home, pred_away, pen_pick):
+    """Admin-only: saves a prediction bypassing the match-lock. Used to enter predictions
+    on behalf of players who submitted via Excel after the match already started."""
+    conn = get_connection()
+    cur = conn.cursor()
+
+    player = cur.execute("SELECT id FROM players WHERE name = ?", (player_name,)).fetchone()
+    if not player:
+        conn.close()
+        return False, "Player not found"
+
+    match = cur.execute("SELECT * FROM r32_matches WHERE num = ?", (match_num,)).fetchone()
+    if not match:
+        conn.close()
+        return False, "Match not found"
+
+    cur.execute("""
+        INSERT INTO r32_predictions (player_id, match_num, pred_home, pred_away, pen_pick)
+        VALUES (?, ?, ?, ?, ?)
+        ON CONFLICT(player_id, match_num) DO UPDATE SET
+            pred_home = excluded.pred_home,
+            pred_away = excluded.pred_away,
+            pen_pick = excluded.pen_pick
+    """, (player["id"], match_num, pred_home, pred_away, pen_pick if pen_pick else None))
+
+    conn.commit()
+    conn.close()
+    return True, "Saved"
+
+
 def save_r32_prediction(player_name, match_num, pred_home, pred_away, pen_pick):
     """Saves (or updates) one player's R32 prediction. Blocks edits once the match has a result."""
     conn = get_connection()

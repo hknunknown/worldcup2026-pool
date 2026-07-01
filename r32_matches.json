@@ -54,8 +54,8 @@
     "date": "Tue, 30 Jun",
     "time": "23:00",
     "home": "France",
-    "home_goals": null,
-    "away_goals": null,
+    "home_goals": 3,
+    "away_goals": 0,
     "away": "Sweden",
     "pen_winner": null
   },
@@ -64,8 +64,8 @@
     "date": "Wed, 1 Jul",
     "time": "03:00",
     "home": "Mexico",
-    "home_goals": null,
-    "away_goals": null,
+    "home_goals": 2,
+    "away_goals": 0,
     "away": "Ecuador",
     "pen_winner": null
   },

@@ -250,3 +250,36 @@ def get_group_stage_history():
         "matches": [dict(m) for m in matches],
         "leaderboard": [dict(r) for r in leaderboard],
     }
+
+
+def update_r32_result(match_num, home_goals, away_goals, pen_winner=None):
+    """Updates the result for a single R32 match. Called from the admin page."""
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("""
+        UPDATE r32_matches
+        SET home_goals=?, away_goals=?, pen_winner=?
+        WHERE num=?
+    """, (home_goals, away_goals, pen_winner if pen_winner else None, match_num))
+    conn.commit()
+    conn.close()
+
+
+def get_r32_match(match_num):
+    """Returns a single R32 match by number."""
+    conn = get_connection()
+    match = conn.execute("SELECT * FROM r32_matches WHERE num=?", (match_num,)).fetchone()
+    conn.close()
+    return dict(match) if match else None
+
+
+def update_r32_team_name(match_num, home=None, away=None):
+    """Updates placeholder team names once confirmed."""
+    conn = get_connection()
+    cur = conn.cursor()
+    if home:
+        cur.execute("UPDATE r32_matches SET home=? WHERE num=?", (home, match_num))
+    if away:
+        cur.execute("UPDATE r32_matches SET away=? WHERE num=?", (away, match_num))
+    conn.commit()
+    conn.close()

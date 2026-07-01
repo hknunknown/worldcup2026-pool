@@ -304,8 +304,6 @@
       "pen_pick": "Ghana"
     }
   },
-  "Santosh": {},
-  "Shubham": {},
   "Neha": {
     "2": {
       "home": 2,
@@ -338,12 +336,11 @@
       "pen_pick": null
     },
     "8": {
-      "home": 3,
-      "away": 1,
+      "home": 1,
+      "away": 0,
       "pen_pick": null
     }
   },
-  "Vikash": {},
   "Aditya": {
     "1": {
       "home": null,
@@ -426,8 +423,6 @@
       "pen_pick": "Colombia"
     }
   },
-  "Pankaj": {},
-  "Kamal": {},
   "Pragin": {
     "1": {
       "home": null,
@@ -509,7 +504,5 @@
       "away": 2,
       "pen_pick": "Colombia"
     }
-  },
-  "Drew": {},
-  "Prasenjit": {}
+  }
 }
